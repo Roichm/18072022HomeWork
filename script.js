@@ -4,11 +4,12 @@ const inputColor = document.getElementById("inputForColor");
 const inputCountry = document.getElementById("inputForCountry");
 const genderCollection = document.getElementsByName("inputForGender");
 const inputContainer = document.getElementById("container");
+let counter = 0;
 // .getAttribute("check");
 function addCard() {
   if (isValidationSucess()) {
     addInputsToCard();
-    setCardBackgroundColor();
+    counter += 1;
     // console.log(inputName.value);
     // console.log(inputAge.value);
     // console.log(inputColor.value);
@@ -26,16 +27,36 @@ function reset() {
 }
 
 function isValidationSucess() {
-  if (inputAge.value < 0 || inputName.value.length < 2) {
+  if(inputAge.value < 0){
+    alert("Invalid age");
     return false;
-  } else {
-    return true;
   }
+  if(inputName.value.length < 2){
+     alert("name must ne 2 and more characters")
+     return false;
+  }
+  return true;
+  // if (inputAge.value < 0 || inputName.value.length < 2) {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
 }
 function addInputsToCard() {
   inputContainer.innerHTML +=
     `
-  <div class="card mb-3" style="width: 18rem" id ="myCard">
+    <style> 
+    #card` +
+    counter +
+    ` .list-group-item{
+      background-color: ` +
+    inputColor.value +
+    `;
+    }
+    </style>
+  <div class="card mb-3" style="width: 18rem" id ="card` +
+    counter +
+    `">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">` +
     inputName.value +
@@ -54,23 +75,15 @@ function addInputsToCard() {
   `;
 }
 
-function setCardBackgroundColor() {
-  inputContainer.style.backgroundColor = inputColor.value;
-  // document.getElementById("myCard").style.backgroundColor = inputColor.value;
-}
-
 function getGenderCheckedValue() {
-  // for (let gender of genderCollection) {
-  //   console.log(typeof gender);
-  //   if (gender.checked) {
-  //     return gender.value;
-  //   }
-  // }
+  for (let gender of genderCollection) {
+    console.log(typeof gender);
+    gender.addEventListener("changed", getSelected(this));
+  }
 
-  for (i = 0; i < genderCollection.length; i++) {
-    if (genderCollection[i].checked) {
-      console.log(genderCollection[i].value);
-      return genderCollection[i].value;
+  function getSelected(e) {
+    if (this.checked) {
+      return this.value;
     }
   }
 }

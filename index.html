@@ -15,37 +15,41 @@
   </head>
 
   <body>
-    
-      <label for="inputForName">Name:</label>
-      <input id="inputForName" type="text" />
-      <br />
-      <label for="inputForAge">Age:</label>
-      <input id="inputForAge" type="number" />
-      <br />
-      <label for="inputForColor">Color:</label>
-      <input id="inputForColor" type="color" value="#000000" />
-      <br />
-      <label for="inputForContry">Contry:</label>
-      <select id="inputForCountry">
-        <option selected>Select County</option>
-        <option value="israel">Israel</option>
-        <option value="germany">Germany</option>
-        <option value="france">France</option>
-      </select>
-      <br />
-      <label for="inputForGender">Gender:</label>
-      <label for="male">male</label>
-      <input type="radio" name="inputForGender " value="male" id="male" />
+    <label for="inputForName">Name:</label>
+    <input id="inputForName" type="text" />
+    <br />
+    <label for="inputForAge">Age:</label>
+    <input id="inputForAge" type="number" />
+    <br />
+    <label for="inputForColor">Color:</label>
+    <input id="inputForColor" type="color" value="#000000" />
+    <br />
+    <label for="inputForContry">Contry:</label>
+    <select id="inputForCountry">
+      <option selected>Select County</option>
+      <option value="israel">Israel</option>
+      <option value="germany">Germany</option>
+      <option value="france">France</option>
+    </select>
+    <br />
+    <label for="inputForGender">Gender:</label>
+    <label for="male">male</label>
+    <input type="radio" name="inputForGender " value="male" id="male" />
 
-      <label for="female">female</label>
-      <input type="radio" name="inputForGender " value="female" id="female" />
+    <label for="female">female</label>
+    <input type="radio" name="inputForGender " value="female" id="female" />
 
-      <label for="other">other</label>
-      <input type="radio" name="inputForGender " value="other" id="other" />
-      <button onclick="reset()">Reset</button>
-      <button onclick="addCard()">Add Card</button>
+    <label for="other">other</label>
+    <input type="radio" name="inputForGender " value="other" id="other" />
+    <button onclick="reset()">Reset</button>
+    <button onclick="addCard()">Add Card</button>
 
-      <!-- <div class="card" style="width: 18rem">
+    <!-- <style> 
+      #card .list-group-item{
+        background-color: aqua;
+      }
+      </style>
+      <div class="card" style="width: 18rem " id="card" >
         <ul class="list-group list-group-flush">
           <li class="list-group-item">name</li>
           <li class="list-group-item">Age</li>
@@ -53,9 +57,6 @@
           <li class="list-group-item">Gender</li>
         </ul>
       </div> -->
-      <div id="container">
-        
-      </div>
-   
+    <div id="container"></div>
   </body>
 </html>
